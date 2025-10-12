@@ -40,5 +40,6 @@ def generate_points(n, height, width):
 # points = generate_points(n, height, width)
 # print(points)
 
-def voronoi(path, points):
-    print("voronoi jeje")
+def voronoi(path, img, points):
+    img_p = img.copy()
+    return img_p

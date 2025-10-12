@@ -8,4 +8,5 @@ def mosaico(path, img):
     except (IOError, FileNotFoundError):
         print("wtf")
         pass
-
+    
+    return img_p

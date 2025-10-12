@@ -1,7 +1,3 @@
-n = 400
-height = 150
-width = 100
-
 def euclidian(p1, p2):
 
     '''
