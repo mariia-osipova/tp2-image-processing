@@ -3,6 +3,7 @@ from filters.voronoi import voronoi, generate_points
 from distance.euclidean import euclidean
 from distance.manhattan import manhattan
 from PIL import Image
+import numpy as np
 
 def main():
     # ask user for image path
@@ -17,6 +18,7 @@ def main():
         return
 
     width, height = img.size
+    img = np.array(img)
 
     selected_filter = input("Seleccione el método (vitral/mosaico): ")
 
@@ -97,10 +99,18 @@ def main():
             bordes = input("Por favor, escriba 'si' o 'no': ").strip().lower()
         bordes = bordes == "si"
 
-        path_result = input("Seleccione la ruta para guardar la imagen procesada: ")
+        path_result = input("Seleccione la ruta para guardar la imagen procesada (por ejemplo, resultado.png): ")
 
-        img_p = mosaico(path, img, variance_threshold, min_size, max_passes, bordes)
-        return img_p.save(path_result)
+        if not (path_result.lower().endswith(".png") or path_result.lower().endswith(
+                ".jpg") or path_result.lower().endswith(".jpeg")):
+            path_result += ".png"
+
+        img_p = mosaico(img, variance_threshold, min_size, max_passes, bordes, height, width)
+        img_pillow = Image.fromarray(img_p)
+
+        img_pillow.save(path_result)
+        print(f"Imagen guardada en: {path_result}")
+        return path_result
 
 if __name__ == "__main__":
     main()
