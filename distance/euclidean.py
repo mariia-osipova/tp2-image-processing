@@ -1,4 +1,4 @@
-def euclidian(p1, p2):
+def euclidean(p1, p2):
 
     '''
     Calculate the Euclidean distance between two points.
