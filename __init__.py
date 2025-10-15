@@ -41,11 +41,11 @@ def main():
             d = manhattan
 
         # for voronoi: generate random points
-        points = generate_points(n, height, width)
+        points = generate_points(n, height, width, d)
         
         path_result = input("Seleccione la ruta para guardar la imagen procesada: ")
         
-        img_p = voronoi(path, img, points, d)
+        img_p = voronoi(img, points, height, width, d)
         return img_p.save(path_result)
 
     elif selected_filter == "mosaico":

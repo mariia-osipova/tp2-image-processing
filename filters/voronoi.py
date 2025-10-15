@@ -1,7 +1,7 @@
-from PIL import Image
 import numpy as np
 import random
 from distance import euclidean
+from distance import manhattan
 
 # n = 400
 # height = 150
@@ -42,30 +42,31 @@ def generate_points(n, height, width, d):
 # points = generate_points(n, height, width)
 # print(points)
 
-def voronoi(path, points, height, width):
+def voronoi(img, points, height, width, d):
 
-    colores = []
+    arr = np.array(img)
+    none_matrix = np.full_like(arr, None, dtype=object)
+
+    seed_colors = []
+    for (y, x) in points:
+        seed_colors.append(arr[y, x])
 
     for i in range(height):
         for j in range(width):
-            p1_x = j
-            p1_y = i
+            p1 = (i, j)
 
             menor_distancia = 999999
-            punto_mas_cercano = 0
+            punto_mas_cercano = None
 
             for k in range(len(points)):
-                punto_x = points[k][0]
-                punto_y = points[k][1]
+                p2 = (points[k][0], points[k][1])
 
-                dx = p1_x - punto_x
-                dy = p1_y - punto_y
-                distancia = dx * dx + dy * dy
+                distancia = d(p1, p2)
 
                 if distancia < menor_distancia:
                     menor_distancia = distancia
                     punto_mas_cercano = k
 
-    color = colores[punto_mas_cercano]
-
+            none_matrix[i, j] = seed_colors[punto_mas_cercano]
     print("voronoi jeje")
+    return none_matrix
