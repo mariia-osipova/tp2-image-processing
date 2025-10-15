@@ -1,12 +1,14 @@
 from PIL import Image
+import numpy as np
 import random
+from distance import euclidean
 
 # n = 400
 # height = 150
 # width = 100
 # data sample
 
-def generate_points(n, height, width):
+def generate_points(n, height, width, d):
     '''
     Generate n random points on the image (coordinates (y, x)).
     n — number of points (should be received from __init__.py)
@@ -16,7 +18,6 @@ def generate_points(n, height, width):
     '''
 
     points = []
-    colores=[]
 
     for _ in range(n):
         (y, x) = (
@@ -35,32 +36,36 @@ def generate_points(n, height, width):
             points.append((y, x))
 
     points.sort(key=lambda p: p[0] + p[1])  # sort points by diagonal (increasing sum of y + x)
-    for i in height:
-        for j in width:
-            p1_x = j
-            p1_y = i
-
-            menor_distancia = 999999
-            punto_mas_cercano = 0 
-    for k in range(len(points)):
-        punto_x = points[k][0]  
-        punto_y= points [k][1]
-
-        dx = p1_x - punto_x
-        dy = p1_y - punto_y
-        distancia = dx*dx + dy*dy
-
-       
-        if distancia < menor_distancia:
-            menor_distancia = distancia
-            punto_mas_cercano = k
-
-    color = colores[punto_mas_cercano]
 
     return points
 
 # points = generate_points(n, height, width)
 # print(points)
 
-def voronoi(path, points):
+def voronoi(path, points, height, width):
+
+    colores = []
+
+    for i in range(height):
+        for j in range(width):
+            p1_x = j
+            p1_y = i
+
+            menor_distancia = 999999
+            punto_mas_cercano = 0
+
+            for k in range(len(points)):
+                punto_x = points[k][0]
+                punto_y = points[k][1]
+
+                dx = p1_x - punto_x
+                dy = p1_y - punto_y
+                distancia = dx * dx + dy * dy
+
+                if distancia < menor_distancia:
+                    menor_distancia = distancia
+                    punto_mas_cercano = k
+
+    color = colores[punto_mas_cercano]
+
     print("voronoi jeje")
