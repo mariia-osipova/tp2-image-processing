@@ -15,10 +15,10 @@ output_dir = "out"
 # d = euclidean
 
 filter_type = "mosaico"
-variance_threshold = 150
-min_size = 20
-max_passes = 10
-bordes = False
+variance_threshold = 100
+min_size = 30
+max_passes = 5
+bordes = True
 
 os.makedirs(output_dir, exist_ok=True)
 exts = (".png", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff", ".pgm")
