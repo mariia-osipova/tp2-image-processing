@@ -18,9 +18,6 @@ def main():
         return
 
     width, height = img.size
-    img = np.array(img)
-
-  
     if width > 200 or height > 200:
 
         if width > height:
@@ -33,6 +30,10 @@ def main():
         img = img.resize((nuevo_width, nuevo_height))
         width, height = img.size
         print('Imagen pasada del limite de dimension. Redimensionada al permitido')
+    img = np.array(img)
+
+  
+    
 
     selected_filter = input("Seleccione el método (vitral/mosaico): ")
 

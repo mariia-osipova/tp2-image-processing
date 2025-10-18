@@ -80,8 +80,12 @@ def voronoi(img, points, height, width, d):
             array_pixeles = np.array(pixeles_celda)
             promedio = np.mean(array_pixeles, axis=0)
             
+            
 
-            promedio = [int(promedio[0]), int(promedio[1]), int(promedio[2])]
+            try:
+                promedio = [int(promedio[0]), int(promedio[1]), int(promedio[2])]
+            except:
+                promedio = [int(promedio), int(promedio), int(promedio)]
             promedios.append(promedio)
         else:
  
