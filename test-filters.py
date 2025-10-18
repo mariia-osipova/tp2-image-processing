@@ -10,12 +10,15 @@ from distance.manhattan import manhattan
 input_dir = "test_images"
 output_dir = "out"
 
-filter_type = "vitral"
-n = 200
-d = euclidean
+# filter_type = "vitral"
+# n = 200
+# d = euclidean
 
-# filter_type = "mosaico"
-# TODO: do mosaico test
+filter_type = "mosaico"
+variance_threshold = 100
+min_size = 30
+max_passes = 5
+bordes = True
 
 os.makedirs(output_dir, exist_ok=True)
 exts = (".png", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff", ".pgm")
@@ -43,18 +46,13 @@ for filename in files:
             img = np.array(im)
             height, width = img.shape[:2]
 
-        if filter_type == "vitral":
-            points = generate_points(n, height, width)
-            result = voronoi(img, points, height, width, d)
-
+        # if filter_type == "vitral":
+        #     points = generate_points(n, height, width)
+        #     result = voronoi(img, points, height, width, d)
+        #
         # else:
-        #     result = mosaico(
-        #         img,
-        #         variance_threshold,
-        #         min_size,
-        #         max_passes,
-        #         bordes
-        #     )
+        result = mosaico(img, variance_threshold, min_size, max_passes, bordes, height, width)
+        result = Image.fromarray(result)
 
         output_path = os.path.join(output_dir, f"{os.path.splitext(filename)[0]}_{filter_type}.png")
         result.save(output_path)
