@@ -50,10 +50,10 @@ for filename in files:
         # else:
         #     result = mosaico(
         #         img,
-        #         variance_threshold=150,
-        #         min_size=20,
-        #         max_passes=10,
-        #         bordes=False
+        #         variance_threshold,
+        #         min_size,
+        #         max_passes,
+        #         bordes
         #     )
 
         output_path = os.path.join(output_dir, f"{os.path.splitext(filename)[0]}_{filter_type}.png")
