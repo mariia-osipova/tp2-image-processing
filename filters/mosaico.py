@@ -10,4 +10,3 @@ def mosaico(path):
     except (IOError, FileNotFoundError):
         print("wtf")
         pass
-
