@@ -1,18 +1,18 @@
-## Trabajo Práctico - Image Processing
+## Image Processing — Practical Assignment
 
-### Objetivo
+### Objective
 
-El objetivo del proyecto es desarrollar un sistema de procesamiento de imágenes que permita aplicar distintos filtros visuales de manera configurable.  
-El usuario puede elegir entre dos filtros principales:
+The goal of this project is to develop an image processing system capable of applying different visual filters in a configurable way.  
+The user can choose between two main filters:
 
-- **Voronoi**: genera una representación de la imagen mediante celdas construidas a partir de puntos semilla.
-- **Mosaico**: transforma la imagen en bloques (tiles) tomando el color promedio de cada región.
+- **Voronoi**: generates a representation of the image based on regions (cells) created from randomly distributed seed points.
+- **Mosaic**: transforms the image into blocks (tiles), assigning each tile the average color of the pixels it contains.
 
-Cada filtro cuenta con sus propios parámetros de entrada, los cuales el usuario puede ajustar para experimentar con diferentes configuraciones y resultados.
+Each filter includes adjustable input parameters, allowing the user to experiment with different configurations and visual results.
 
-### Ejemplo de uso — Filtro Mosaico
+### Usage Example — Mosaic Filter
 
-Con los siguientes parámetros de entrada:
+Using the following input parameters:
 
 ```python
 variance_threshold = 150
