@@ -61,5 +61,7 @@ for filename in files:
         elapsed = time.time() - start_time
         print(f" {filename} saved as {output_path} ({elapsed:.2f} sec)")
 
+        # TODO: save the report as .md
+
     except Exception as e:
         print(f"an error occurred with {filename}: {e}")
