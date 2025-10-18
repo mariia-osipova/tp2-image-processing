@@ -41,6 +41,7 @@ def generate_points(n, height, width, d):
 def voronoi(img, points, height, width, d):
 
     arr = np.array(img)
+
     
     asignaciones = []
     for i in range(height):
@@ -96,7 +97,6 @@ def voronoi(img, points, height, width, d):
             fila.append(color_promedio)
         imagen_resultado.append(fila)
     
-    # Convertir a array normal
     array_final = np.array(imagen_resultado)
 
     return Image.fromarray(array_final.astype(np.uint8))
