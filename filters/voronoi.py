@@ -8,7 +8,7 @@ from PIL import Image
 # width = 100
 # data sample
 
-def generate_points(n, height, width, d):
+def generate_points(n, height, width):
     points = []
 
     for _ in range(n):
