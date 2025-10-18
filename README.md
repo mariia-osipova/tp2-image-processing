@@ -10,4 +10,20 @@ El usuario puede elegir entre dos filtros principales:
 
 Cada filtro cuenta con sus propios parámetros de entrada, los cuales el usuario puede ajustar para experimentar con diferentes configuraciones y resultados.
 
-### Ejemplo de uso
+### Ejemplo de uso — Filtro Mosaico
+
+Con los siguientes parámetros de entrada:
+
+```python
+variance_threshold = 150
+min_size = 20
+max_passes = 10
+bordes = False
+```
+
+| Imagen original                    | Resultado procesado                                   |
+|------------------------------------|-------------------------------------------------------|
+| ![cablecar.bmp](test_images/cablecar.bmp) | ![cablecar_mosaico.png](data/cablecar_mosaico.png)    |
+| ![cornfield.bmp](test_images/cornfield.bmp)  | ![cornfield_mosaico.png](data/cornfield_mosaico.png)  |
+| ![flowers.bmp](test_images/flowers.bmp)  | ![flowers_mosaico.png](data/flowers_mosaico.png)      |
+| ![boat.png](test_images/boat.png)  | ![boat_mosaico.png](data/boat_mosaico.png)            |
