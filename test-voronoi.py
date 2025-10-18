@@ -26,12 +26,23 @@ for filename in files:
     start_time = time.time()
     try:
         im = Image.open(input_path).convert("RGB")
-        h, w = im.size
-        points = generate_points(n_puntos, h, w, metrica)
-        result = voronoi(im, points, h, w, metrica)
+        width, height = im.size
+        if width > 200 or height > 200:
+            if width > height:
+                new_width = 200
+                new_height = int(height * 200 / width)
+            else:
+                new_height = 200
+                new_width = int(width * 200 / height)
+            im = im.resize((new_width, new_height))
+            width, height = new_width, new_height
+            print(f"  Redimensionada a: {width}x{height}")
+        
+        points = generate_points(n_puntos, height, width, metrica)
+        result = voronoi(im, points, height, width, metrica)
         out = os.path.join(output_dir, f"{os.path.splitext(filename)[0]}_{filter_type}.png")
         result.save(out)
-        print(f" {filename} saved as {out} ({time.time() - start_time:.2f} sec)")
+        print(f"  {filename} saved as {out} ({time.time() - start_time:.2f} sec)")
         ok += 1
     except Exception as e:
         print(f"an error occurred with {filename}: {e}")
