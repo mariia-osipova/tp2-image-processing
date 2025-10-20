@@ -2,11 +2,35 @@ import numpy as np
 import random
 from distance import euclidean
 from distance import manhattan
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
+import tifffile as tiff
+import io
+from contextlib import redirect_stdout, redirect_stderr
+from pathlib import Path
+
 # n = 400
 # height = 150
 # width = 100
 # data sample
+
+
+
+def safe_open(path: str) -> Image.Image:
+    try:
+        im = Image.open(path)
+        im.load()
+        return im
+    except (UnidentifiedImageError, OSError, ValueError):
+        pass
+    if Path(path).suffix.lower() not in (".tif", ".tiff"):
+        raise
+    arr = _read_tiff_quiet(path)
+    arr = _to_uint8(arr)
+    if arr.ndim == 2:
+        return Image.fromarray(arr, "L")
+    if arr.ndim == 3 and arr.shape[-1] > 3:
+        arr = arr[..., :3]
+    return Image.fromarray(arr).convert("RGB")
 
 def generate_points(n, height, width):
     points = []
@@ -39,7 +63,10 @@ def generate_points(n, height, width):
     return points
 
 def voronoi(img, points, height, width, d):
-
+    # Si img es una ruta (string), abrir la imagen con safe_open
+    if type(img) == str:
+        img = safe_open(img)
+        img = img.convert("RGB")
     arr = np.array(img)
 
     
@@ -80,15 +107,12 @@ def voronoi(img, points, height, width, d):
             array_pixeles = np.array(pixeles_celda)
             promedio = np.mean(array_pixeles, axis=0)
             
-            
-
             try:
                 promedio = [int(promedio[0]), int(promedio[1]), int(promedio[2])]
             except:
                 promedio = [int(promedio), int(promedio), int(promedio)]
             promedios.append(promedio)
         else:
- 
             color_original = arr[points[k][0], points[k][1]]
             promedios.append([int(color_original[0]), int(color_original[1]), int(color_original[2])])
 

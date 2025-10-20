@@ -2,6 +2,7 @@ from filters.mosaico import mosaico
 from filters.voronoi import voronoi, generate_points
 from distance.euclidean import euclidean
 from distance.manhattan import manhattan
+from filters.voronoi import safe_open
 from PIL import Image
 import numpy as np
 
@@ -12,7 +13,7 @@ def main():
     # open the Image to test
     # TODO: delete later
     try:
-        img = Image.open(path)
+        img = safe_open(path)
     except FileNotFoundError:
         print("No se encontró la imagen. Por favor, verifique la ruta e intente nuevamente. ")
         return
