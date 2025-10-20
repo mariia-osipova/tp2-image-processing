@@ -15,6 +15,23 @@ from pathlib import Path
 
 
 
+def _to_uint8(a: np.ndarray) -> np.ndarray:
+    if a.dtype == np.uint8:
+        return a
+    a = a.astype(np.float32)
+    if a.max() <= 1.0:
+        a *= 255
+    return np.clip(a, 0, 255).astype(np.uint8)
+
+def _read_tiff_quiet(path: str) -> np.ndarray:
+    buf = io.StringIO()
+    with redirect_stdout(buf), redirect_stderr(buf):
+        try:
+            return tiff.imread(path)
+        except:
+            with tiff.TiffFile(path) as tf:
+                return tf.pages[0].asarray()
+
 def safe_open(path: str) -> Image.Image:
     try:
         im = Image.open(path)
@@ -63,7 +80,6 @@ def generate_points(n, height, width):
     return points
 
 def voronoi(img, points, height, width, d):
-    # Si img es una ruta (string), abrir la imagen con safe_open
     if type(img) == str:
         img = safe_open(img)
         img = img.convert("RGB")
