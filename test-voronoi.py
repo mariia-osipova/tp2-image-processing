@@ -1,19 +1,27 @@
 import os
 import time
 from PIL import Image
+import tifffile as tiff
+import numpy as np
 from filters.voronoi import voronoi, generate_points
 from distance.euclidean import euclidean
 from distance.manhattan import manhattan
 
+def safe_open(path):
+    try:
+        return Image.open(path)
+    except:
+        arr = tiff.imread(path)
+        return Image.fromarray(arr)
 input_dir = "test_images"
 output_dir = "out"
 
 filter_type = "voronoi"
 n_puntos = 1000
-metrica = euclidean
+metrica = manhattan
 
 os.makedirs(output_dir, exist_ok=True)
-exts = (".png", ".jpg", ".jpeg", ".bmp", ".pgm")
+exts = (".png", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff", ".pgm")
 
 files = sorted([f for f in os.listdir(input_dir) if f.lower().endswith(exts)], key=lambda x: x.lower())
 
@@ -25,7 +33,7 @@ for filename in files:
     print(f"process {filename}...")
     start_time = time.time()
     try:
-        im = Image.open(input_path).convert("RGB")
+        im = safe_open(input_path).convert("RGB")
         width, height = im.size
         if width > 200 or height > 200:
             if width > height:
@@ -38,7 +46,7 @@ for filename in files:
             width, height = new_width, new_height
             print(f"  Redimensionada a: {width}x{height}")
         
-        points = generate_points(n_puntos, height, width, metrica)
+        points = generate_points(n_puntos, height, width)
         result = voronoi(im, points, height, width, metrica)
         out = os.path.join(output_dir, f"{os.path.splitext(filename)[0]}_{filter_type}.png")
         result.save(out)
