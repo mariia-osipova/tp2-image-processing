@@ -4,6 +4,7 @@ from distance.euclidean import euclidean
 from distance.manhattan import manhattan
 from PIL import Image
 import numpy as np
+from add.add import safe_open, _to_uint8, _read_tiff_quiet
 
 def main():
     # ask user for image path
@@ -12,7 +13,7 @@ def main():
     # open the Image to test
     # TODO: delete later
     try:
-        img = Image.open(path)
+        img = safe_open(path).convert("RGB")
     except FileNotFoundError:
         print("No se encontró la imagen. Por favor, verifique la ruta e intente nuevamente. ")
         return
