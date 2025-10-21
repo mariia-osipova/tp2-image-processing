@@ -4,7 +4,6 @@ def mosaico(img, variance_threshold, min_size, max_passes, bordes, height, width
 
     """ Aplica el filtro mosaico subdividiendo iterativamente.
     """
-
     area_a_procesar = [(0,0,height,width)] #lista de areas a chequear, que seria el area total de la img
 
     area_final = [] #las areas que ya no se van a dividir mas
@@ -72,5 +71,3 @@ def color_promedio(area):
         return np.array([0, 0, 0], dtype = np.uint8) #si el area esta vacia devuelve negro
     color_promedio = np.mean(area, axis = (0,1)).astype(np.uint8) #calcular el promedio del rgb y que se cumpla el color 0 a 255
     return color_promedio
-
-
