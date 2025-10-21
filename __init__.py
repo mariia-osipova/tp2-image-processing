@@ -56,7 +56,29 @@ def main():
                 ".jpg") or path_result.lower().endswith(".jpeg")):
             path_result += ".png"
 
-        img_p = voronoi(img, points, height, width, d, speed)
+        if speed and max(width, height) > 200:
+            im_orig = img.convert("RGB")
+            orig_w, orig_h = im_orig.size
+
+            if orig_w >= orig_h:
+                small_w = 200
+                small_h = max(1, int(orig_h * 200 / orig_w))
+            else:
+                small_h = 200
+                small_w = max(1, int(orig_w * 200 / orig_h))
+
+            im_small = im_orig.resize((small_w, small_h), Image.BILINEAR)
+            width, height = small_w, small_h
+            print(f"  Dimension de imagen fuera del limite. Redimensionada a  {width}x{height}")
+
+            points = generate_points(n, height, width)
+            result_small = voronoi(im_small, points, height, width, d, speed)
+
+            img_p = result_small.resize((orig_w, orig_h), Image.NEAREST)
+        else:
+            points = generate_points(n, height, width)
+            img_p = voronoi(img, points, height, width, d, speed)
+
         img_pillow = img_p if isinstance(img_p, Image.Image) else Image.fromarray(np.asarray(img_p, dtype=np.uint8))
 
         img_pillow.save(path_result)
