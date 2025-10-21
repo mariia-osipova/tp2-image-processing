@@ -26,24 +26,24 @@ metrica = euclidean
 speed = True
 ```
 
-| Original Image                                      | Processed Result                                     |
-|-----------------------------------------------------|------------------------------------------------------|
-| ![alonso.jpeg](test_images/alonso.jpeg)             | ![alonso_voronoi.png](data3%28eucl-1000%29/alonso_voronoi.png)   |
-| ![barbara_color.bmp](test_images/barbara_color.bmp) | ![barbara_color_voronoi.png](data3%28eucl-1000%29/barbara_color_voronoi.png) |
-| ![goldhill.bmp](test_images/goldhill.bmp)           | ![goldhill_voronoi.png](data3%28eucl-1000%29/goldhill_voronoi.png)    |
-| ![house.png](test_images/house.png)        | ![img.png](data3%28eucl-1000%29/img.png)        |
+| Original Image                                      | Processed Result                                                             |
+|-----------------------------------------------------|------------------------------------------------------------------------------|
+| ![alonso.jpeg](test_images/alonso.jpeg)             | ![alonso_voronoi.png](data/data3-eucl-1000/alonso_voronoi.png)               |
+| ![barbara_color.bmp](test_images/barbara_color.bmp) | ![barbara_color_voronoi.png](data/data3-eucl-1000/barbara_color_voronoi.png) |
+| ![goldhill.bmp](test_images/goldhill.bmp)           | ![goldhill_voronoi.png](data/data3-eucl-1000/goldhill_voronoi.png)           |
+| ![house.png](test_images/house.png)       git       | ![img.png](data/data3-eucl-1000/img.png)                                     |
 
 ```python
 n_puntos = 700
 metrica = manhatten
 speed = True
 ```
-| Original Image                           | Processed Result                                                 |
-|------------------------------------------|------------------------------------------------------------------|
-| ![rainier.bmp](test_images/rainier.bmp)  | ![rainier_voronoi.png](data4%28manh-700%29/rainier_voronoi.png)  |
-| ![flowers.bmp](test_images/flowers.bmp)  | ![flowers_voronoi.png](data4%28manh-700%29/flowers_voronoi.png)  |
-| ![fruits.bmp](test_images/fruits.bmp)    | ![fruits_voronoi.png](data4%28manh-700%29/fruits_voronoi.png)    |
-| ![barbara.bmp](test_images/barbara.bmp)  | ![barbara_voronoi.png](data4%28manh-700%29/barbara_voronoi.png)                       |
+| Original Image                           | Processed Result                                                |
+|------------------------------------------|-----------------------------------------------------------------|
+| ![rainier.bmp](test_images/rainier.bmp)  | ![rainier_voronoi.png](data/data4-manh-700/rainier_voronoi.png) |
+| ![flowers.bmp](test_images/flowers.bmp)  | ![flowers_voronoi.png](data/data4-manh-700/flowers_voronoi.png) |
+| ![fruits.bmp](test_images/fruits.bmp)    | ![fruits_voronoi.png](data/data4-manh-700/fruits_voronoi.png)   |
+| ![barbara.bmp](test_images/barbara.bmp)  | ![barbara_voronoi.png](data/data4-manh-700/barbara_voronoi.png) |
 
 
 ### Usage Example — Mosaic Filter
