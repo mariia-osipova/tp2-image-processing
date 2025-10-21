@@ -1,3 +1,5 @@
+from networkx.algorithms.euler import eulerian_circuit
+
 ## Image Processing — Practical Assignment
 
 ### Objective
@@ -9,6 +11,34 @@ The user can choose between two main filters:
 - **Mosaic**: transforms the image into blocks (tiles), assigning each tile the average color of the pixels it contains.
 
 Each filter includes adjustable input parameters, allowing the user to experiment with different configurations and visual results.
+
+### Usage Example — Voronoi Filter
+
+Using the following input parameters:
+
+```python
+n_puntos = 1000
+metrica = euclidean
+```
+
+| Original Image                                      | Processed Result                                     |
+|-----------------------------------------------------|------------------------------------------------------|
+| ![alonso.jpeg](test_images/alonso.jpeg)             | ![alonso_voronoi.png](data3%28eucl-1000%29/alonso_voronoi.png)   |
+| ![barbara_color.bmp](test_images/barbara_color.bmp) | ![barbara_color_voronoi.png](data3%28eucl-1000%29/barbara_color_voronoi.png) |
+| ![goldhill.bmp](test_images/goldhill.bmp)           | ![goldhill_voronoi.png](data3%28eucl-1000%29/goldhill_voronoi.png)    |
+| ![house.png](test_images/house.png)        | ![img.png](data3%28eucl-1000%29/img.png)        |
+
+```python
+n_puntos = 700
+metrica = manhatten
+```
+| Original Image                           | Processed Result                                                 |
+|------------------------------------------|------------------------------------------------------------------|
+| ![rainier.bmp](test_images/rainier.bmp)  | ![rainier_voronoi.png](data4%28manh-700%29/rainier_voronoi.png)  |
+| ![flowers.bmp](test_images/flowers.bmp)  | ![flowers_voronoi.png](data4%28manh-700%29/flowers_voronoi.png)  |
+| ![fruits.bmp](test_images/fruits.bmp)    | ![fruits_voronoi.png](data4%28manh-700%29/fruits_voronoi.png)    |
+| ![barbara.bmp](test_images/barbara.bmp)  | ![barbara_voronoi.png](data4%28manh-700%29/barbara_voronoi.png)                       |
+
 
 ### Usage Example — Mosaic Filter
 
