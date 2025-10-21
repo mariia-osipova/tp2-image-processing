@@ -17,33 +17,25 @@ Using the following input parameters:
 ```python
 n_puntos = 1000
 metrica = euclidean
-speed = False
 ```
 
-```python
-n_puntos = 1000
-metrica = euclidean
-speed = True
-```
-
-| Original Image                                      | Processed Result                                                             |
-|-----------------------------------------------------|------------------------------------------------------------------------------|
-| ![alonso.jpeg](test_images/alonso.jpeg)             | ![alonso_voronoi.png](data/data3-eucl-1000/alonso_voronoi.png)               |
-| ![barbara_color.bmp](test_images/barbara_color.bmp) | ![barbara_color_voronoi.png](data/data3-eucl-1000/barbara_color_voronoi.png) |
-| ![goldhill.bmp](test_images/goldhill.bmp)           | ![goldhill_voronoi.png](data/data3-eucl-1000/goldhill_voronoi.png)           |
-| ![house.png](test_images/house.png)       git       | ![img.png](data/data3-eucl-1000/img.png)                                     |
+| Original Image                                      | Processed Result, speed = False                                                      |  Processed Result, speed = True                                               |
+|-----------------------------------------------------|--------------------------------------------------------------------------------------| ------------------------------------------------------------------------------|
+| ![alonso.jpeg](test_images/alonso.jpeg)             | ![alonso_false_euclidean.png](data/data6-eucl-1000-f/alonso_false_euclidean.png)     | ![alonso_voronoi.png](data/data3-eucl-1000/alonso_voronoi.png)               |
+| ![barbara_color.bmp](test_images/barbara_color.bmp) | ![barbara_false_euclidean.png](data/data6-eucl-1000-f/barbara_false_euclidean.png)   |![barbara_color_voronoi.png](data/data3-eucl-1000/barbara_color_voronoi.png) |
+| ![goldhill.bmp](test_images/goldhill.bmp)           | ![goldhill_false_euclidean.png](data/data6-eucl-1000-f/goldhill_false_euclidean.png) | ![goldhill_voronoi.png](data/data3-eucl-1000/goldhill_voronoi.png) |
+| ![house.png](test_images/house.png)                 | ![house_false_euclidean.png](data/data6-eucl-1000-f/house_false_euclidean.png)       | ![img.png](data/data3-eucl-1000/img.png) |
 
 ```python
 n_puntos = 700
 metrica = manhatten
-speed = True
 ```
-| Original Image                           | Processed Result                                                |
-|------------------------------------------|-----------------------------------------------------------------|
-| ![rainier.bmp](test_images/rainier.bmp)  | ![rainier_voronoi.png](data/data4-manh-700/rainier_voronoi.png) |
-| ![flowers.bmp](test_images/flowers.bmp)  | ![flowers_voronoi.png](data/data4-manh-700/flowers_voronoi.png) |
-| ![fruits.bmp](test_images/fruits.bmp)    | ![fruits_voronoi.png](data/data4-manh-700/fruits_voronoi.png)   |
-| ![barbara.bmp](test_images/barbara.bmp)  | ![barbara_voronoi.png](data/data4-manh-700/barbara_voronoi.png) |
+| Original Image                           | Processed Result, speed = False                                   | Processed Result, speed = True                                                |
+|------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------------|
+| ![rainier.bmp](test_images/rainier.bmp)  | ![rainier_voronoi.png](data/data5-manh-700-f/rainier_voronoi.png) | ![rainier_voronoi.png](data/data4-manh-700/rainier_voronoi.png) |
+| ![flowers.bmp](test_images/flowers.bmp)  | ![flowers_voronoi.png](data/data5-manh-700-f/flowers_voronoi.png) | ![flowers_voronoi.png](data/data4-manh-700/flowers_voronoi.png) |
+| ![fruits.bmp](test_images/fruits.bmp)    | ![fruits_voronoi.png](data/data5-manh-700-f/fruits_voronoi.png)   | ![fruits_voronoi.png](data/data4-manh-700/fruits_voronoi.png)   |
+| ![barbara.bmp](test_images/barbara.bmp)  | ![barbara_voronoi.png](data/data5-manh-700-f/barbara_voronoi.png) | ![barbara_voronoi.png](data/data4-manh-700/barbara_voronoi.png) |
 
 
 ### Usage Example — Mosaic Filter
