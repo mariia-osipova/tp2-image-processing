@@ -15,8 +15,8 @@ from distance.manhattan import manhattan
 warnings.filterwarnings("ignore", category=UserWarning, module="tifffile")
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-input_dir = "test_images"
-output_dir = "out"
+input_dir = "../test_images"
+output_dir = "../out"
 
 filter_type = "mosaico"
 variance_threshold = 100

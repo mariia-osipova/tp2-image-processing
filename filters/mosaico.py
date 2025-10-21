@@ -9,7 +9,7 @@ def mosaico(img, variance_threshold, min_size, max_passes, bordes, height, width
     area_final = [] #las areas que ya no se van a dividir mas
 
     for _ in range(max_passes): #subdividir segun los max_passes
-        area_aca = area_a_procesar 
+        area_aca = area_a_procesar
         area_a_procesar = [] #vaciar para llenarla con los nuevos cuadrantes
 
         for y0, x0, y1, x1 in area_aca: #para calcular las areas
