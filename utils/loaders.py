@@ -1,11 +1,11 @@
-from PIL import Image, UnidentifiedImageError, ImageFile
+import numpy as np
+from PIL import Image, UnidentifiedImageError
 import tifffile as tiff
+import io
 from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
-import io
-import numpy as np
 
-def _to_uint8(a: np.ndarray) -> np.ndarray:
+def to_uint8(a: np.ndarray) -> np.ndarray:
     if a.dtype == np.uint8:
         return a
     a = a.astype(np.float32)
@@ -13,7 +13,7 @@ def _to_uint8(a: np.ndarray) -> np.ndarray:
         a *= 255
     return np.clip(a, 0, 255).astype(np.uint8)
 
-def _read_tiff_quiet(path: str) -> np.ndarray:
+def read_tiff_quiet(path: str) -> np.ndarray:
     buf = io.StringIO()
     with redirect_stdout(buf), redirect_stderr(buf):
         try:
@@ -31,8 +31,8 @@ def safe_open(path: str) -> Image.Image:
         pass
     if Path(path).suffix.lower() not in (".tif", ".tiff"):
         raise
-    arr = _read_tiff_quiet(path)
-    arr = _to_uint8(arr)
+    arr = read_tiff_quiet(path)
+    arr = to_uint8(arr)
     if arr.ndim == 2:
         return Image.fromarray(arr, "L")
     if arr.ndim == 3 and arr.shape[-1] > 3:

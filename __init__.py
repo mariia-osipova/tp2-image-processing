@@ -2,9 +2,11 @@ from filters.mosaico import mosaico
 from filters.voronoi import voronoi, generate_points
 from distance.euclidean import euclidean
 from distance.manhattan import manhattan
+from filters.voronoi import safe_open
 from PIL import Image
 import numpy as np
-from add.add import safe_open
+import numpy as np
+from utils.loaders import safe_open
 
 def main():
     # ask user for image path
@@ -28,6 +30,10 @@ def main():
 
     if selected_filter == "vitral":
 
+        arr = np.array(img, dtype=np.uint8)
+        height, width = arr.shape[:2]
+        img = img.convert("RGB")
+
         # ask the user for the number of points (default n = 1000)
         n = input("Ingrese la cantidad de puntos (default=1000): ")
         if n == "":
@@ -43,15 +49,52 @@ def main():
         else:
             d = manhattan
 
+        speed = input("¿Procesar la imagen mas rapido? (si/no): ").strip().lower()
+        while speed not in ["si", "no"]:
+            speed = input("Por favor, escriba 'si' o 'no': ").strip().lower()
+        speed = speed == "si"
+
         # for voronoi: generate random points
         points = generate_points(n, height, width)
-        
-        path_result = input("Seleccione la ruta para guardar la imagen procesada: ")
-        
-        img_p = voronoi(path, img, points, d)
-        return img_p.save(path_result)
+
+        path_result = input("Seleccione la ruta para guardar la imagen procesada (por ejemplo, resultado.png): ")
+
+        if not (path_result.lower().endswith(".png") or path_result.lower().endswith(
+                ".jpg") or path_result.lower().endswith(".jpeg")):
+            path_result += ".png"
+
+        if speed and max(width, height) > 200:
+            im_orig = img.convert("RGB")
+            orig_w, orig_h = im_orig.size
+
+            if orig_w >= orig_h:
+                small_w = 200
+                small_h = max(1, int(orig_h * 200 / orig_w))
+            else:
+                small_h = 200
+                small_w = max(1, int(orig_w * 200 / orig_h))
+
+            im_small = im_orig.resize((small_w, small_h), Image.BILINEAR)
+            width, height = small_w, small_h
+            print(f"  Dimension de imagen fuera del limite. Redimensionada a  {width}x{height}")
+
+            points = generate_points(n, height, width)
+            result_small = voronoi(im_small, points, height, width, d, speed)
+
+            img_p = result_small.resize((orig_w, orig_h), Image.NEAREST)
+        else:
+            points = generate_points(n, height, width)
+            img_p = voronoi(img, points, height, width, d, speed)
+
+        img_pillow = img_p if isinstance(img_p, Image.Image) else Image.fromarray(np.asarray(img_p, dtype=np.uint8))
+
+        img_pillow.save(path_result)
+        print(f"Imagen guardada en: {path_result}")
+        return path_result
 
     elif selected_filter == "mosaico":
+        img_array = np.array(img)
+        width, height = img.size
 
         variance_threshold = input("Ingrese el umbral de varianza (default=150): ")
         if variance_threshold == "":
