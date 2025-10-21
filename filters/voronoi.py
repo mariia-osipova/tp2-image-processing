@@ -13,8 +13,6 @@ from pathlib import Path
 # width = 100
 # data sample
 
-
-
 def _to_uint8(a: np.ndarray) -> np.ndarray:
     if a.dtype == np.uint8:
         return a
@@ -31,6 +29,7 @@ def _read_tiff_quiet(path: str) -> np.ndarray:
         except:
             with tiff.TiffFile(path) as tf:
                 return tf.pages[0].asarray()
+
 def safe_open(path: str) -> Image.Image:
     try:
         im = Image.open(path)
@@ -83,7 +82,6 @@ def voronoi(img, points, height, width, d):
         img = safe_open(img)
         img = img.convert("RGB")
     arr = np.array(img)
-
     
     asignaciones = []
     for i in range(height):

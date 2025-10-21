@@ -33,21 +33,30 @@ for filename in files:
     print(f"process {filename}...")
     start_time = time.time()
     try:
-        im = safe_open(input_path).convert("RGB")
-        width, height = im.size
-        if width > 200 or height > 200:
-            if width > height:
-                new_width = 200
-                new_height = int(height * 200 / width)
+        im_orig = safe_open(input_path).convert("RGB")
+        orig_w, orig_h = im_orig.size
+
+        if max(orig_w, orig_h) > 200:
+            if orig_w >= orig_h:
+                small_w = 200
+                small_h = max(1, int(orig_h * 200 / orig_w))
             else:
-                new_height = 200
-                new_width = int(width * 200 / height)
-            im = im.resize((new_width, new_height))
-            width, height = new_width, new_height
+                small_h = 200
+                small_w = max(1, int(orig_w * 200 / orig_h))
+
+            im_small = im_orig.resize((small_w, small_h), Image.BILINEAR)
+            width, height = small_w, small_h
             print(f"  Redimensionada a: {width}x{height}")
-        
-        points = generate_points(n_puntos, height, width)
-        result = voronoi(im, points, height, width, metrica)
+
+            points = generate_points(n_puntos, height, width)
+            result_small = voronoi(im_small, points, height, width, metrica)
+
+            result = result_small.resize((orig_w, orig_h), Image.NEAREST)
+        else:
+            width, height = orig_w, orig_h
+            points = generate_points(n_puntos, height, width)
+            result = voronoi(im_orig, points, height, width, metrica)
+
         out = os.path.join(output_dir, f"{os.path.splitext(filename)[0]}_{filter_type}.png")
         result.save(out)
         print(f"  {filename} saved as {out} ({time.time() - start_time:.2f} sec)")
