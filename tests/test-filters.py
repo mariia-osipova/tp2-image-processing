@@ -7,8 +7,8 @@ from filters.voronoi import voronoi, generate_points
 from distance.euclidean import euclidean
 from distance.manhattan import manhattan
 
-input_dir = "test_images"
-output_dir = "out"
+input_dir = "../test_images"
+output_dir = "../out"
 
 filter_type = "vitral"
 n = 200

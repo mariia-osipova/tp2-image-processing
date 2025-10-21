@@ -13,8 +13,8 @@ def safe_open(path):
     except:
         arr = tiff.imread(path)
         return Image.fromarray(arr)
-input_dir = "test_images"
-output_dir = "out"
+input_dir = "../test_images"
+output_dir = "../out"
 
 filter_type = "voronoi"
 n_puntos = 1500
