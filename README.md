@@ -1,5 +1,3 @@
-from networkx.algorithms.euler import eulerian_circuit
-
 ## Image Processing — Practical Assignment
 
 ### Objective
@@ -19,6 +17,13 @@ Using the following input parameters:
 ```python
 n_puntos = 1000
 metrica = euclidean
+speed = False
+```
+
+```python
+n_puntos = 1000
+metrica = euclidean
+speed = True
 ```
 
 | Original Image                                      | Processed Result                                     |
@@ -31,6 +36,7 @@ metrica = euclidean
 ```python
 n_puntos = 700
 metrica = manhatten
+speed = True
 ```
 | Original Image                           | Processed Result                                                 |
 |------------------------------------------|------------------------------------------------------------------|
