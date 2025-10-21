@@ -8,7 +8,7 @@ The user can choose between two main filters:
 - **Voronoi**: generates a representation of the image based on regions (cells) created from randomly distributed seed points.
 - **Mosaic**: transforms the image into blocks (tiles), assigning each tile the average color of the pixels it contains.
 
-Each filter includes adjustable input parameters, allowing the user to experiment with different configurations and visual results. However, during the development process, we encountered performance issues with the Voronoi filter, as it required significant processing time for larger images. To address this, we introduced an additional parameter called speed, which lets the user decide between higher processing speed or better image quality. When speed = True, the algorithm prioritizes faster computation, resulting in a lower-quality but quicker output. 
+Each filter includes adjustable input parameters, allowing the user to experiment with different configurations and visual results. However, during the development process, we encountered performance issues with the Voronoi filter, as it required significant processing time for larger images. To address this, we introduced an additional parameter called `speed`, which lets the user decide between higher processing speed or better image quality. When speed = True, the algorithm prioritizes faster computation, resulting in a lower-quality but quicker output. 
 
 ### Usage Example — Voronoi Filter
 
