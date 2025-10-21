@@ -4,7 +4,7 @@ from distance.euclidean import euclidean
 from distance.manhattan import manhattan
 from PIL import Image
 import numpy as np
-from add.add import safe_open, _to_uint8, _read_tiff_quiet
+from add.add import safe_open
 
 def main():
     # ask user for image path
