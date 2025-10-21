@@ -79,9 +79,6 @@ def generate_points(n, height, width):
 
 def voronoi(img, points, height, width, d, speed):
 
-    if speed == True:
-        print("lalalala")
-
     if type(img) == str:
         img = safe_open(img)
         img = img.convert("RGB")
