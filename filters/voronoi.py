@@ -87,7 +87,6 @@ def voronoi(img, points, height, width, d, speed):
         img = img.convert("RGB")
     arr = np.array(img)
 
-    
     asignaciones = []
     for i in range(height):
         fila = []
@@ -131,6 +130,7 @@ def voronoi(img, points, height, width, d, speed):
                 promedio = [int(promedio), int(promedio), int(promedio)]
             promedios.append(promedio)
         else:
+ 
             color_original = arr[points[k][0], points[k][1]]
             promedios.append([int(color_original[0]), int(color_original[1]), int(color_original[2])])
 
@@ -143,6 +143,7 @@ def voronoi(img, points, height, width, d, speed):
             fila.append(color_promedio)
         imagen_resultado.append(fila)
     
+    # Convertir a array normal
     array_final = np.array(imagen_resultado)
 
     return Image.fromarray(array_final.astype(np.uint8))
