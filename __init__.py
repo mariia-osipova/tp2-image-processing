@@ -24,19 +24,8 @@ def main():
         selected_filter = input("Seleccione de vuelta el método (vitral/mosaico): ")
 
     if selected_filter == "vitral":
+
         width, height = img.size
-        if width > 200 or height > 200:
-            if width > height:
-                nuevo_width = 200
-                nuevo_height = int(height * 200 / width)
-            else:
-                nuevo_height = 200
-                nuevo_width = int(width * 200 / height)
-            
-            img = img.resize((nuevo_width, nuevo_height))
-            width, height = img.size
-            print('Imagen pasada del limite de dimension. Redimensionada al permitido')
-        img = np.array(img)
 
         # ask the user for the number of points (default n = 1000)
         n = input("Ingrese la cantidad de puntos (default=1000): ")
@@ -53,6 +42,11 @@ def main():
         else:
             d = manhattan
 
+        speed = input("¿Procesar la imagen mas rapido? (si/no): ").strip().lower()
+        while speed not in ["si", "no"]:
+            speed = input("Por favor, escriba 'si' o 'no': ").strip().lower()
+        speed = speed == "si"
+
         # for voronoi: generate random points
         points = generate_points(n, height, width)
 
@@ -62,7 +56,7 @@ def main():
                 ".jpg") or path_result.lower().endswith(".jpeg")):
             path_result += ".png"
 
-        img_p = voronoi(img, points, height, width, d)
+        img_p = voronoi(img, points, height, width, d, speed)
         img_pillow = img_p if isinstance(img_p, Image.Image) else Image.fromarray(np.asarray(img_p, dtype=np.uint8))
 
         img_pillow.save(path_result)
