@@ -17,7 +17,7 @@ input_dir = "test_images"
 output_dir = "out"
 
 filter_type = "voronoi"
-n_puntos = 1000
+n_puntos = 1500
 metrica = manhattan
 
 os.makedirs(output_dir, exist_ok=True)
