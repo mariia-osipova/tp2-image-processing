@@ -18,30 +18,25 @@ def main():
         print("No se encontró la imagen. Por favor, verifique la ruta e intente nuevamente. ")
         return
 
-    width, height = img.size
-    if width > 200 or height > 200:
-
-        if width > height:
-            nuevo_width = 200
-            nuevo_height = int(height * 200 / width)
-        else:
-            nuevo_height = 200
-            nuevo_width = int(width * 200 / height)
-        
-        img = img.resize((nuevo_width, nuevo_height))
-        width, height = img.size
-        print('Imagen pasada del limite de dimension. Redimensionada al permitido')
-    img = np.array(img)
-
-  
-    
-
     selected_filter = input("Seleccione el método (vitral/mosaico): ")
 
     while selected_filter not in ["vitral", "mosaico"]:
         selected_filter = input("Seleccione de vuelta el método (vitral/mosaico): ")
 
     if selected_filter == "vitral":
+        width, height = img.size
+        if width > 200 or height > 200:
+            if width > height:
+                nuevo_width = 200
+                nuevo_height = int(height * 200 / width)
+            else:
+                nuevo_height = 200
+                nuevo_width = int(width * 200 / height)
+            
+            img = img.resize((nuevo_width, nuevo_height))
+            width, height = img.size
+            print('Imagen pasada del limite de dimension. Redimensionada al permitido')
+        img = np.array(img)
 
         # ask the user for the number of points (default n = 1000)
         n = input("Ingrese la cantidad de puntos (default=1000): ")
@@ -75,6 +70,8 @@ def main():
         return path_result
 
     elif selected_filter == "mosaico":
+        img_array = np.array(img)
+        width, height = img.size
 
         variance_threshold = input("Ingrese el umbral de varianza (default=150): ")
         if variance_threshold == "":
@@ -125,8 +122,10 @@ def main():
 
         path_result = input("Seleccione la ruta para guardar la imagen procesada: ")
 
-        img_p = mosaico(path, img, variance_threshold, min_size, max_passes, bordes)
-        return img_p.save(path_result)
+        img_p = mosaico(path, img_array, variance_threshold, min_size, max_passes, bordes)
+        img_p.save(path_result)
+        print(f"Imagen guardada en: {path_result}")
+        return path_result
 
 if __name__ == "__main__":
     main()
