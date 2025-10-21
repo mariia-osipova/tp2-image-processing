@@ -7,45 +7,7 @@ import tifffile as tiff
 import io
 from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
-
-# n = 400
-# height = 150
-# width = 100
-# data sample
-
-def _to_uint8(a: np.ndarray) -> np.ndarray:
-    if a.dtype == np.uint8:
-        return a
-    a = a.astype(np.float32)
-    if a.max() <= 1.0:
-        a *= 255
-    return np.clip(a, 0, 255).astype(np.uint8)
-
-def _read_tiff_quiet(path: str) -> np.ndarray:
-    buf = io.StringIO()
-    with redirect_stdout(buf), redirect_stderr(buf):
-        try:
-            return tiff.imread(path)
-        except:
-            with tiff.TiffFile(path) as tf:
-                return tf.pages[0].asarray()
-
-def safe_open(path: str) -> Image.Image:
-    try:
-        im = Image.open(path)
-        im.load()
-        return im
-    except (UnidentifiedImageError, OSError, ValueError):
-        pass
-    if Path(path).suffix.lower() not in (".tif", ".tiff"):
-        raise
-    arr = _read_tiff_quiet(path)
-    arr = _to_uint8(arr)
-    if arr.ndim == 2:
-        return Image.fromarray(arr, "L")
-    if arr.ndim == 3 and arr.shape[-1] > 3:
-        arr = arr[..., :3]
-    return Image.fromarray(arr).convert("RGB")
+from utils.loaders import safe_open
 
 def generate_points(n, height, width):
     points = []
@@ -77,7 +39,7 @@ def generate_points(n, height, width):
     points.sort(key=lambda p: p[0] + p[1])
     return points
 
-def voronoi(img, points, height, width, d, speed):
+def voronoi(img, points, height, width, d):
 
     if type(img) == str:
         img = safe_open(img)
