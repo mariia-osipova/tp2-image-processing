@@ -13,8 +13,6 @@ from pathlib import Path
 # width = 100
 # data sample
 
-
-
 def _to_uint8(a: np.ndarray) -> np.ndarray:
     if a.dtype == np.uint8:
         return a

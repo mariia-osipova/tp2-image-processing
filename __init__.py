@@ -25,7 +25,9 @@ def main():
 
     if selected_filter == "vitral":
 
-        width, height = img.size
+        arr = np.array(img, dtype=np.uint8)
+        height, width = arr.shape[:2]
+        img = img.convert("RGB")
 
         # ask the user for the number of points (default n = 1000)
         n = input("Ingrese la cantidad de puntos (default=1000): ")
