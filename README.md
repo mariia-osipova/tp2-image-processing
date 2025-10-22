@@ -28,7 +28,7 @@ metrica = euclidean
 
 ```python
 n_puntos = 700
-metrica = manhatten
+metrica = manhattan
 ```
 | Original Image                           | Processed Result, speed = False                                   | Processed Result, speed = True                                                |
 |------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------------|
