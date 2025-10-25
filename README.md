@@ -30,13 +30,12 @@ metrica = euclidean
 n_puntos = 700
 metrica = manhattan
 ```
-| Original Image                       | Processed Result, speed = False                                   | Processed Result, speed = True                                  |
-|--------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------------|
-| ![rainier.bmp](docs/img/rainier.bmp) | ![rainier_voronoi.png](data/data5-manh-700-f/rainier_voronoi.png) | ![rainier_voronoi.png](data/data4-manh-700/rainier_voronoi.png) |
-| ![flowers.bmp](docs/img/flowers.bmp) | ![flowers_voronoi.png](data/data5-manh-700-f/flowers_voronoi.png) | ![flowers_voronoi.png](data/data4-manh-700/flowers_voronoi.png) |
-| ![fruits.png](docs/img/fruits.png)   | ![fruits_voronoi.png](data/data5-manh-700-f/fruits_voronoi.png)   | ![fruits_voronoi.png](data/data4-manh-700/fruits_voronoi.png)   |
-| ![barbara.bmp](docs/img/barbara.bmp) | ![barbara_voronoi.png](data/data5-manh-700-f/barbara_voronoi.png) | ![barbara_voronoi.png](data/data4-manh-700/barbara_voronoi.png) |
-
+| Original Image                           | Processed Result, speed = False                                   | Processed Result, speed = True                                  |
+|------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------------|
+| ![rainier.bmp](docs/img/rainier.bmp)     | ![rainier_voronoi.png](data/data5-manh-700-f/rainier_voronoi.png) | ![rainier_voronoi.png](data/data4-manh-700/rainier_voronoi.png) |
+| ![flowers.bmp](docs/img/flowers.bmp)     | ![flowers_voronoi.png](data/data5-manh-700-f/flowers_voronoi.png) | ![flowers_voronoi.png](data/data4-manh-700/flowers_voronoi.png) |
+| ![fruits.png](docs/img/fruits.png)       | ![fruits_voronoi.png](data/data5-manh-700-f/fruits_voronoi.png)   | ![fruits_voronoi.png](data/data4-manh-700/fruits_voronoi.png)   |
+| ![barbara.bmp](docs/img/barbara.bmp)     | ![barbara_voronoi.png](data/data5-manh-700-f/barbara_voronoi.png) | ![barbara_voronoi.png](data/data4-manh-700/barbara_voronoi.png) |
 
 ### Usage Example — Mosaic Filter
 
