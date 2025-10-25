@@ -32,11 +32,11 @@ n_puntos = 700
 metrica = manhattan
 ```
 
-| Original Image                          | Processed Result, speed = False                           | Processed Result, speed = True                           |
-|-----------------------------------------|-----------------------------------------------------------|----------------------------------------------------------|
-| ![rainier.bmp](test_images/rainier.bmp) | ![rainier_voronoi.png](data/d5m700f/rainier_voronoi.png)  | ![rainier_voronoi.png](data/d4m700/rainier_voronoi.png)  |
+| Original Image                         | Processed Result, speed = False                           | Processed Result, speed = True                           |
+|----------------------------------------|-----------------------------------------------------------|----------------------------------------------------------|
+| ![rainier.jpg](data/rainier.jpg) | ![rainier_voronoi.png](data/d5m700f/rainier_voronoi.png)  | ![rainier_voronoi.png](data/d4m700/rainier_voronoi.png)  |
 | ![flowers.bmp](test_images/flowers.bmp) | ![flowers_voronoi.png](data/d5m700f/flowers_voronoi.png)  | ![flowers_voronoi.png](data/d4m700/flowers_voronoi.png)  |
-| ![fruits.png](test_images/fruits.png)   | ![fruits_voronoi.png](data/d5m700f/fruits_voronoi.png)    | ![fruits_voronoi.png](data/d4m700/fruits_voronoi.png)    |
+| ![fruits.png](test_images/fruits.png)  | ![fruits_voronoi.png](data/d5m700f/fruits_voronoi.png)    | ![fruits_voronoi.png](data/d4m700/fruits_voronoi.png)    |
 | ![barbara.bmp](test_images/barbara.bmp) | ![barbara_voronoi.png](data/d5m700f/barbara_voronoi.png)  | ![barbara_voronoi.png](data/d4m700/barbara_voronoi.png)  |
 
 ### Mosaic Filter
