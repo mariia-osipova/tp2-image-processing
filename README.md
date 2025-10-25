@@ -69,3 +69,33 @@ bordes = True
 | ![boat_color.bmp](test_images/boat_color.bmp) | ![boat_color_mosaico.png](data/boat_color_mosaico.png) |
 | ![goldhill.bmp](test_images/goldhill.bmp)     | ![goldhill_mosaico.png](data/goldhill_mosaico.png)     |
 | ![arc2.png](test_images/arc2.png)             | ![arc2_mosaico.png](data/arc2_mosaico.png)             |
+
+# Project Setup
+
+Follow these steps to get your project up and running:
+
+## 1. Clone the project
+
+Copy the project from the `main` branch.
+
+<img width="1002" height="311" alt="image" src="https://github.com/user-attachments/assets/7b1d9e21-4b83-4c49-8524-b233029c1127" />
+
+## 2. Install requirements
+
+Run the following command to install the necessary dependencies:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+## 3. Run the project
+
+Execute the project from the console with the metrics you need.
+
+<img width="1227" height="200" alt="image" src="https://github.com/user-attachments/assets/5ae0d98e-2987-42a3-ad43-cc7066cd3550" />
+
+## 4. Video example
+
+Here is a video to demonstrate how to use the project:
+
+[![Video Example](https://img.youtube.com/vi/7DSI2kXDgLM/0.jpg)](https://youtu.be/7DSI2kXDgLM?si=lGnbNni_57aXiv25)
