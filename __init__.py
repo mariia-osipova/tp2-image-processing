@@ -9,14 +9,17 @@ from utils.loaders import safe_open
 
 def main():
     # ask user for image path
-    path = input("Ingrese la ruta de la imagen: ")
-
-    # open the Image to test
-    # TODO: delete later
-    try:
-        img = safe_open(path).convert("RGB")
-    except FileNotFoundError:
-        raise FileNotFoundError(f"No se encontró la imagen: {path}")
+    while True:
+        path = input("Ingrese la ruta de la imagen: ").strip()
+        try:
+            img = safe_open(path)
+            break
+        except FileNotFoundError as e:
+            print(str(e))
+        except ValueError as e:
+            print(str(e))
+        except RuntimeError as e:
+            print(str(e))
 
     width, height = img.size
     arr = np.array(img, dtype=np.uint8)
@@ -88,6 +91,7 @@ def main():
         return path_result
 
     elif selected_filter == "mosaico":
+        arr = np.asarray(img, dtype=np.uint8)
         width, height = img.size
 
         variance_threshold = input("Ingrese el umbral de varianza (default=150): ")
@@ -143,7 +147,7 @@ def main():
                 ".jpg") or path_result.lower().endswith(".jpeg")):
             path_result += ".png"
 
-        img_p = mosaico(img, variance_threshold, min_size, max_passes, bordes, height, width)
+        img_p = mosaico(arr, variance_threshold, min_size, max_passes, bordes, height, width)
         img_pillow = Image.fromarray(img_p)
 
         img_pillow.save(path_result)

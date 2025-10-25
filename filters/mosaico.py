@@ -2,6 +2,9 @@ import numpy as np
 
 def mosaico(img, variance_threshold, min_size, max_passes, bordes, height, width):
 
+    if not isinstance(img, np.ndarray):
+        img = np.asarray(img.convert("RGB"))
+
     """ Aplica el filtro mosaico subdividiendo iterativamente.
     """
     area_a_procesar = [(0,0,height,width)] #lista de areas a chequear, que seria el area total de la img
