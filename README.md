@@ -79,7 +79,7 @@ Follow these steps to get your project up and running:
 
 Copy the project from the `main` branch.
 
-![img.png](data/img_00.png)
+![img.png](data/img_00.jpg)
 
 ## 2. Install requirements
 
@@ -93,7 +93,7 @@ python3 -m pip install -r requirements.txt
 
 Execute the project from the console with the metrics you need.
 
-![img.png](data/img_0.png)
+![img.png](data/img_0.jpg)
 
 ## 4. Video example
 
