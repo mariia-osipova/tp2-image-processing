@@ -5,7 +5,6 @@ from distance.manhattan import manhattan
 from filters.voronoi import safe_open
 from PIL import Image
 import numpy as np
-import numpy as np
 from utils.loaders import safe_open
 
 def main():
