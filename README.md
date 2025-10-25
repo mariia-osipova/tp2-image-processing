@@ -10,36 +10,6 @@ The user can choose between two main filters:
 
 Each filter includes adjustable input parameters, allowing the user to experiment with different configurations and visual results. However, during the development process, we encountered performance issues with the Voronoi filter, as it required significant processing time for larger images. To address this, we introduced an additional parameter called `speed`, which lets the user decide between higher processing speed or better image quality. When speed = True, the algorithm prioritizes faster computation, resulting in a lower-quality but quicker output. 
 
-# Project Setup
-
-Follow these steps to get your project up and running:
-
-## 1. Clone the project
-
-Copy the project from the `main` branch.
-
-![img.png](data/img_00.png)
-
-## 2. Install requirements
-
-Run the following command to install the necessary dependencies:
-
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-## 3. Run the project
-
-Execute the project from the console with the metrics you need.
-
-![img.png](data/img_0.png)
-
-## 4. Video example
-
-Here is a video to demonstrate how to use the project:
-
-[![Video Example](https://img.youtube.com/vi/7DSI2kXDgLM/0.jpg)](https://youtu.be/7DSI2kXDgLM?si=lGnbNni_57aXiv25)
-
 # Usage Example 
 ### Voronoi Filter
 
@@ -100,3 +70,33 @@ bordes = True
 | ![boat_color.bmp](test_images/boat_color.bmp) | ![boat_color_mosaico.png](data/boat_color_mosaico.png) |
 | ![goldhill.bmp](test_images/goldhill.bmp)     | ![goldhill_mosaico.png](data/goldhill_mosaico.png)     |
 | ![arc2.png](test_images/arc2.png)             | ![arc2_mosaico.png](data/arc2_mosaico.png)             |
+
+# Project Setup
+
+Follow these steps to get your project up and running:
+
+## 1. Clone the project
+
+Copy the project from the `main` branch.
+
+![img.png](data/img_00.png)
+
+## 2. Install requirements
+
+Run the following command to install the necessary dependencies:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+## 3. Run the project
+
+Execute the project from the console with the metrics you need.
+
+![img.png](data/img_0.png)
+
+## 4. Video example
+
+Here is a video to demonstrate how to use the project:
+
+[![Video Example](https://img.youtube.com/vi/7DSI2kXDgLM/0.jpg)](https://youtu.be/7DSI2kXDgLM?si=lGnbNni_57aXiv25)
