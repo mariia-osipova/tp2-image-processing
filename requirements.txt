@@ -1,5 +1,3 @@
 numpy
 pillow
-random
-os
 tifffile

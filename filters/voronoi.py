@@ -39,7 +39,7 @@ def generate_points(n, height, width):
     points.sort(key=lambda p: p[0] + p[1])
     return points
 
-def voronoi(img, points, height, width, d):
+def voronoi(img, points, height, width, d, speed):
 
     if type(img) == str:
         img = safe_open(img)

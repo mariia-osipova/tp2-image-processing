@@ -5,7 +5,6 @@ from distance.manhattan import manhattan
 from filters.voronoi import safe_open
 from PIL import Image
 import numpy as np
-import numpy as np
 from utils.loaders import safe_open
 
 def main():
@@ -17,11 +16,10 @@ def main():
     try:
         img = safe_open(path).convert("RGB")
     except FileNotFoundError:
-        print("No se encontró la imagen. Por favor, verifique la ruta e intente nuevamente. ")
-        return
+        raise FileNotFoundError(f"No se encontró la imagen: {path}")
 
     width, height = img.size
-    img = np.array(img)
+    arr = np.array(img, dtype=np.uint8)
 
     selected_filter = input("Seleccione el método (vitral/mosaico): ")
 
@@ -29,10 +27,7 @@ def main():
         selected_filter = input("Seleccione de vuelta el método (vitral/mosaico): ")
 
     if selected_filter == "vitral":
-
-        arr = np.array(img, dtype=np.uint8)
         height, width = arr.shape[:2]
-        img = img.convert("RGB")
 
         # ask the user for the number of points (default n = 1000)
         n = input("Ingrese la cantidad de puntos (default=1000): ")
@@ -64,7 +59,7 @@ def main():
             path_result += ".png"
 
         if speed and max(width, height) > 200:
-            im_orig = img.convert("RGB")
+            im_orig = img
             orig_w, orig_h = im_orig.size
 
             if orig_w >= orig_h:
@@ -93,7 +88,6 @@ def main():
         return path_result
 
     elif selected_filter == "mosaico":
-        img_array = np.array(img)
         width, height = img.size
 
         variance_threshold = input("Ingrese el umbral de varianza (default=150): ")
