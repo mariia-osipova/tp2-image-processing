@@ -100,3 +100,9 @@ Execute the project from the console with the metrics you need.
 Here is a video to demonstrate how to use the project:
 
 [![Video Example](https://img.youtube.com/vi/7DSI2kXDgLM/0.jpg)](https://youtu.be/7DSI2kXDgLM?si=lGnbNni_57aXiv25)
+
+----
+
+#### GitHub Pages
+
+Visit the GitHub Pages site for this project: [https://mariia-osipova.github.io/tp2-image-processing/](https://mariia-osipova.github.io/tp2-image-processing/).
