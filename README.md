@@ -20,12 +20,12 @@ n_puntos = 1000
 metrica = euclidean
 ```
 
-| Original Image                                      | Processed Result, speed = False                                                      |  Processed Result, speed = True                                               |
-|-----------------------------------------------------|--------------------------------------------------------------------------------------| ------------------------------------------------------------------------------|
-| ![alonso.jpeg](test_images/alonso.jpeg)             | ![alonso_false_euclidean.png](data/data6-eucl-1000-f/alonso_false_euclidean.png)     | ![alonso_voronoi.png](data/data3-eucl-1000/alonso_voronoi.png)               |
-| ![barbara_color.bmp](test_images/barbara_color.bmp) | ![barbara_false_euclidean.png](data/data6-eucl-1000-f/barbara_false_euclidean.png)   |![barbara_color_voronoi.png](data/data3-eucl-1000/barbara_color_voronoi.png) |
-| ![goldhill.bmp](test_images/goldhill.bmp)           | ![goldhill_false_euclidean.png](data/data6-eucl-1000-f/goldhill_false_euclidean.png) | ![goldhill_voronoi.png](data/data3-eucl-1000/goldhill_voronoi.png) |
-| ![house.png](test_images/house.png)                 | ![house_false_euclidean.png](data/data6-eucl-1000-f/house_false_euclidean.png)       | ![img.png](data/data3-eucl-1000/img.png) |
+| Original Image                                                                                            | Processed Result, speed = False                                                                                                            | Processed Result, speed = True                                                                                                     |
+|-----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| ![alonso.jpeg](https://mariia-osipova.github.io/tp2-image-processing/test_images/alonso.jpeg)             | ![alonso_false_euclidean.png](https://mariia-osipova.github.io/tp2-image-processing/data/data6-eucl-1000-f/alonso_false_euclidean.png)     |  ![alonso_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/data3-eucl-1000/alonso_voronoi.png)              |
+| ![barbara_color.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/barbara_color.bmp) | ![barbara_false_euclidean.png](https://mariia-osipova.github.io/tp2-image-processing/data/data6-eucl-1000-f/barbara_false_euclidean.png)   | ![barbara_color_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/data3-eucl-1000/barbara_color_voronoi.png) |
+| ![goldhill.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/goldhill.bmp)           | ![goldhill_false_euclidean.png](https://mariia-osipova.github.io/tp2-image-processing/data/data6-eucl-1000-f/goldhill_false_euclidean.png) | ![goldhill_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/data3-eucl-1000/goldhill_voronoi.png)           |
+| ![house.png](https://mariia-osipova.github.io/tp2-image-processing/test_images/house.png)                 | ![house_false_euclidean.png](https://mariia-osipova.github.io/tp2-image-processing/data/data6-eucl-1000-f/house_false_euclidean.png)       | ![img.png](https://mariia-osipova.github.io/tp2-image-processing/data/data3-eucl-1000/img.png)                                     |
 
 ```python
 n_puntos = 700
@@ -34,10 +34,10 @@ metrica = manhattan
 
 | Original Image                          | Processed Result, speed = False                           | Processed Result, speed = True                           |
 |-----------------------------------------|-----------------------------------------------------------|----------------------------------------------------------|
-| ![rainier.bmp](test_images/rainier.bmp) | ![rainier_voronoi.png](data/d5m700f/rainier_voronoi.png)  | ![rainier_voronoi.png](data/d4m700/rainier_voronoi.png)  |
-| ![flowers.bmp](test_images/flowers.bmp) | ![flowers_voronoi.png](data/d5m700f/flowers_voronoi.png)  | ![flowers_voronoi.png](data/d4m700/flowers_voronoi.png)  |
-| ![fruits.png](test_images/fruits.png)   | ![fruits_voronoi.png](data/d5m700f/fruits_voronoi.png)    | ![fruits_voronoi.png](data/d4m700/fruits_voronoi.png)    |
-| ![barbara.bmp](test_images/barbara.bmp) | ![barbara_voronoi.png](data/d5m700f/barbara_voronoi.png)  | ![barbara_voronoi.png](data/d4m700/barbara_voronoi.png)  |
+| ![rainier.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/rainier.bmp) | ![rainier_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/d5m700f/rainier_voronoi.png)  | ![rainier_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/d4m700/rainier_voronoi.png)  |
+| ![flowers.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/flowers.bmp) | ![flowers_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/d5m700f/flowers_voronoi.png)  | ![flowers_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/d4m700/flowers_voronoi.png)  |
+| ![fruits.png](https://mariia-osipova.github.io/tp2-image-processing/test_images/fruits.png)   | ![fruits_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/d5m700f/fruits_voronoi.png)    | ![fruits_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/d4m700/fruits_voronoi.png)    |
+| ![barbara.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/barbara.bmp) | ![barbara_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/d5m700f/barbara_voronoi.png)  | ![barbara_voronoi.png](https://mariia-osipova.github.io/tp2-image-processing/data/d4m700/barbara_voronoi.png)  |
 
 ### Mosaic Filter
 
@@ -50,12 +50,12 @@ max_passes = 10
 bordes = False
 ```
 
-| Original Image                              | Processed Result                                     |
-|---------------------------------------------|------------------------------------------------------|
-| ![cablecar.bmp](test_images/cablecar.bmp)   | ![cablecar_mosaico.png](data/cablecar_mosaico.png)   |
-| ![cornfield.bmp](test_images/cornfield.bmp) | ![cornfield_mosaico.png](data/cornfield_mosaico.png) |
-| ![flowers.bmp](test_images/flowers.bmp)     | ![flowers_mosaico.png](data/flowers_mosaico.png)     |
-| ![boat.png](test_images/boat.png)           | ![boat_mosaico.png](data/boat_mosaico.png)           |
+| Original Image                                                                                     | Processed Result                                                                                            |
+|----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| ![cablecar.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/cablecar.bmp)    | ![cablecar_mosaico.png](https://mariia-osipova.github.io/tp2-image-processing/data/cablecar_mosaico.png)    |
+| ![cornfield.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/cornfield.bmp)  | ![cornfield_mosaico.png](https://mariia-osipova.github.io/tp2-image-processing/data/cornfield_mosaico.png)  |
+| ![flowers.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/flowers.bmp)      | ![flowers_mosaico.png](https://mariia-osipova.github.io/tp2-image-processing/data/flowers_mosaico.png)      |
+| ![boat.png](https://mariia-osipova.github.io/tp2-image-processing/test_images/boat.png)            | ![boat_mosaico.png](https://mariia-osipova.github.io/tp2-image-processing/data/boat_mosaico.png)            |
 
 ```python
 variance_threshold = 100
@@ -64,12 +64,12 @@ max_passes = 5
 bordes = True
 ```
 
-| Original Image                                | Processed Result                                       |
-|-----------------------------------------------|--------------------------------------------------------|
-| ![tulips.png](test_images/tulips.png)         | ![tulips_mosaico.png](data/tulips_mosaico.png)         |
-| ![boat_color.bmp](test_images/boat_color.bmp) | ![boat_color_mosaico.png](data/boat_color_mosaico.png) |
-| ![goldhill.bmp](test_images/goldhill.bmp)     | ![goldhill_mosaico.png](data/goldhill_mosaico.png)     |
-| ![arc2.png](test_images/arc2.png)             | ![arc2_mosaico.png](data/arc2_mosaico.png)             |
+| Original Image                                                                                      | Processed Result                                                                                              |
+|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| ![tulips.png](https://mariia-osipova.github.io/tp2-image-processing/test_images/tulips.png)         | ![tulips_mosaico.png](https://mariia-osipova.github.io/tp2-image-processing/data/tulips_mosaico.png)          |
+| ![boat_color.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/boat_color.bmp) | ![boat_color_mosaico.png](https://mariia-osipova.github.io/tp2-image-processing/data/boat_color_mosaico.png)  |
+| ![goldhill.bmp](https://mariia-osipova.github.io/tp2-image-processing/test_images/goldhill.bmp)     | ![goldhill_mosaico.png](https://mariia-osipova.github.io/tp2-image-processing/data/goldhill_mosaico.png)      |
+| ![arc2.png](https://mariia-osipova.github.io/tp2-image-processing/test_images/arc2.png)             | ![arc2_mosaico.png](https://mariia-osipova.github.io/tp2-image-processing/data/arc2_mosaico.png)              |
 
 # Project Setup
 
